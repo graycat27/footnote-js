@@ -10,10 +10,38 @@
  * <foot-note for="hoge">not a official</foot-note>
  * <foot-note-list></foot-note-list>
  */
+
+//TODO learn https://developer.mozilla.org/ja/docs/Web/API/CustomElementRegistry/define
+ class FootNoteTag extends HTMLLabelElement {
+     constructor(){
+         super();
+     }
+ }
+
+ class FootNoteListTag extends HTMLUListElement {
+    constructor(){
+        super();
+    }
+
+ }
+
+
 let footnoteJs = (function () {
     let fn = {
-        init: function(){
-            //TODO make initialize code
+        /* 変数 */
+        customTagFootNote: function(){
+            customElements.define('foot-note', FootNoteTag, { extends: 'label'});
+            customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
+        },
+
+
+        /* 関数 */
+        generateFootNoteTag: function(){
+            fn.customTagFootNote();
+        },
+
+        makeFootnoteList: function(){
+
 
         },
 
@@ -25,6 +53,6 @@ let footnoteJs = (function () {
 }());
 
 window.addEventListener('DOMContentLoaded', function(){
-    footnoteJs.fn.init();
+    footnoteJs.fn.generateFootNoteTag();
 });
 

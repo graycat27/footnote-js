@@ -16,7 +16,7 @@
      constructor(){
          super();
 
-         footnoteJs.fn.footNoteTagFunc();
+         footnoteJs.fn.footNoteTagFunc(this);
 
      }
  }
@@ -25,7 +25,7 @@
     constructor(){
         super();
 
-        footnoteJs.fn.footNoteListTagFunc();
+        footnoteJs.fn.footNoteListTagFunc(this);
 
     }
 
@@ -40,11 +40,11 @@ let footnoteJs = (function () {
             customElements.define('foot-note', FootNoteTag, { extends: 'label'});
             customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
         },
-        footNoteTagFunc: function(){
+        footNoteTagFunc: function(element){
             // append [num] link tag
             // append alt attribute
         },
-        footNoteListTagFunc: function(){
+        footNoteListTagFunc: function(element){
             // ul-li style
 
         },

@@ -34,8 +34,15 @@
 
 let footnoteJs = (function () {
     let fn = {
+        /* 変数 */
+        cntFootNote: 0,
 
         /* 関数 */
+        init: function(){
+            cntFootNote = 0;
+            fn.registerCustomTagFootNote();
+        },
+
         registerCustomTagFootNote: function(){
             customElements.define('foot-note', FootNoteTag, { extends: 'label'});
             customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
@@ -62,6 +69,7 @@ let footnoteJs = (function () {
 }());
 
 window.addEventListener('DOMContentLoaded', function(){
-    footnoteJs.fn.registerCustomTagFootNote();
+    footnoteJs.fn.init();
+    footnoteJs.fn.makeFootnoteList();
 });
 

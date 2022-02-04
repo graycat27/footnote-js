@@ -35,10 +35,6 @@ let footnoteJs = (function () {
             customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
         },
 
-        generateFootNoteTag: function(){
-            fn.registerCustomTagFootNote();
-        },
-
         makeFootnoteList: function(){
 
 
@@ -52,6 +48,6 @@ let footnoteJs = (function () {
 }());
 
 window.addEventListener('DOMContentLoaded', function(){
-    footnoteJs.fn.generateFootNoteTag();
+    footnoteJs.fn.registerCustomTagFootNote();
 });
 

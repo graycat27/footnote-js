@@ -15,12 +15,18 @@
  class FootNoteTag extends HTMLLabelElement {
      constructor(){
          super();
+
+         footnoteJs.fn.footNoteTagFunc();
+
      }
  }
 
  class FootNoteListTag extends HTMLUListElement {
     constructor(){
         super();
+
+        footnoteJs.fn.footNoteListTagFunc();
+
     }
 
  }
@@ -33,6 +39,14 @@ let footnoteJs = (function () {
         registerCustomTagFootNote: function(){
             customElements.define('foot-note', FootNoteTag, { extends: 'label'});
             customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
+        },
+        footNoteTagFunc: function(){
+            // append [num] link tag
+            // append alt attribute
+        },
+        footNoteListTagFunc: function(){
+            // ul-li style
+
         },
 
         makeFootnoteList: function(){

@@ -28,16 +28,15 @@
 
 let footnoteJs = (function () {
     let fn = {
-        /* 変数 */
-        customTagFootNote: function(){
+
+        /* 関数 */
+        registerCustomTagFootNote: function(){
             customElements.define('foot-note', FootNoteTag, { extends: 'label'});
             customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
         },
 
-
-        /* 関数 */
         generateFootNoteTag: function(){
-            fn.customTagFootNote();
+            fn.registerCustomTagFootNote();
         },
 
         makeFootnoteList: function(){

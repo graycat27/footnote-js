@@ -106,7 +106,7 @@ let footnoteJs = (function () {
 
         rescueMissedFootNote: function(){
             const missedFootNoteList = document.querySelectorAll('foot-note');
-            if(missedFootNoteList){
+            if(missedFootNoteList.length > 0){
                 const missedList = document.createElement('foot-note-list');
                 document.querySelector('body').appendChild(missedList);
             }

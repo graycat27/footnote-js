@@ -34,6 +34,11 @@ class FootNoteListTag extends HTMLUListElement {
 
 let footnoteJs = (function () {
     let fn = {
+
+        /* 定数　*/
+        prefixFootNoteId: 'footnote-',
+        prefixFootNoteTargetId: 'ref-footnote-',
+
         /* 変数 */
         cntFootNote: 0,
         cntNotForLinked: 0,
@@ -50,6 +55,21 @@ let footnoteJs = (function () {
             customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
         },
         footNoteTagFunc: function(element){
+            let targetEle = null;
+            const forAtr = element.getAttribute('for');
+            targetEle = document.getElementById(forAtr);
+            if(targetEle == null){
+                // for='id' 指定が不正。
+                // foot-note の直前に対象を挿入する
+                targetEle = document.createElement('span');
+                if(forAtr == null){
+                    targetEle.id = (fn.prefixFootNoteTargetId + fn.cntNotForLinked);
+                    fn.cntNotForLinked += 1;
+                }else{
+                    targetEle.id = forAtr;
+                }
+                element.before(targetEle);
+            }
             // append [num] link tag
             // append alt attribute
         },

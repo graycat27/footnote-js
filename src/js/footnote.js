@@ -36,10 +36,12 @@ let footnoteJs = (function () {
     let fn = {
         /* 変数 */
         cntFootNote: 0,
+        cntNotForLinked: 0,
 
         /* 関数 */
         init: function(){
-            cntFootNote = 0;
+            fn.cntFootNote = 0;
+            fn.cntNotForLinked = 0;
             fn.registerCustomTagFootNote();
         },
 

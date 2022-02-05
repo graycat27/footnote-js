@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Copyright (C) yui-Kitamura 2022
  * https://yui-kitamura.eng.pro

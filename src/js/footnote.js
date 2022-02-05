@@ -12,16 +12,16 @@
  */
 
 //TODO learn https://developer.mozilla.org/ja/docs/Web/API/CustomElementRegistry/define
- class FootNoteTag extends HTMLLabelElement {
-     constructor(){
-         super();
+class FootNoteTag extends HTMLLabelElement {
+    constructor(){
+        super();
 
-         footnoteJs.fn.footNoteTagFunc(this);
+        footnoteJs.fn.footNoteTagFunc(this);
 
-     }
- }
+    }
+}
 
- class FootNoteListTag extends HTMLUListElement {
+class FootNoteListTag extends HTMLUListElement {
     constructor(){
         super();
 
@@ -29,7 +29,7 @@
 
     }
 
- }
+}
 
 
 let footnoteJs = (function () {

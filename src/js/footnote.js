@@ -75,7 +75,8 @@ let footnoteJs = (function () {
             }
             // append [num] link tag
             let numLinkEle = document.createElement('sup');
-            numLinkEle.innerHTML = ('['+ (fn.cntFootNote + 1) + ']');
+            numLinkEle.innerHTML =
+                ('<a href="#'+ fn.prefixFootNoteId + (fn.cntFootNote + 1) +'">['+ (fn.cntFootNote + 1) +']</a>');
             fn.cntFootNote += 1;
             targetEle.appendChild(numLinkEle);
 

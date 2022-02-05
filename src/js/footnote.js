@@ -1,4 +1,3 @@
-'use strict';
 /**
  * Copyright (C) yui-Kitamura 2022
  * https://yui-kitamura.eng.pro
@@ -35,6 +34,8 @@ class FootNoteListTag extends HTMLElement {
 
 
 let footnoteJs = (function () {
+    'use strict';
+
     let fn = {
 
         /* 定数　*/

@@ -102,12 +102,13 @@ let footnoteJs = (function () {
 
         },
 
-        makeFootnoteList: function(){
-
-
-        },
-
-
+        rescueMissedFootNote: function(){
+            const missedFootNoteList = document.querySelectorAll('foot-note');
+            if(missedFootNoteList){
+                const missedList = document.createElement('foot-note-list');
+                document.querySelector('body').appendChild(missedList);
+            }
+        }
     };
     return {
         fn: fn
@@ -117,5 +118,6 @@ footnoteJs.fn.registerCustomTagFootNote();
 
 window.addEventListener('DOMContentLoaded', function(){
     footnoteJs.fn.init();
+    footnoteJs.fn.rescueMissedFootNote();
 });
 

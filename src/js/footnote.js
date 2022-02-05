@@ -74,7 +74,13 @@ let footnoteJs = (function () {
                 element.before(targetEle);
             }
             // append [num] link tag
-            // append alt attribute
+            let numLinkEle = document.createElement('sup');
+            numLinkEle.innerHTML = ('['+ (fn.cntFootNote + 1) + ']');
+            fn.cntFootNote += 1;
+            targetEle.appendChild(numLinkEle);
+
+            // append title attribute
+            targetEle.setAttribute('title', element.textContent);
         },
         footNoteListTagFunc: function(element){
             // ul-li style

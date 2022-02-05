@@ -39,8 +39,8 @@ let footnoteJs = (function () {
     let fn = {
 
         /* 定数　*/
-        prefixFootNoteId: 'footnote-',
-        prefixFootNoteTargetId: 'ref-footnote-',
+        prefixFootNoteId: 'foot-note-',
+        prefixFootNoteTargetId: 'ref-foot-note-',
 
         /* 変数 */
         cntFootNote: 0,

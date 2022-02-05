@@ -12,21 +12,23 @@
  */
 
 //TODO learn https://developer.mozilla.org/ja/docs/Web/API/CustomElementRegistry/define
-class FootNoteTag extends HTMLLabelElement {
+class FootNoteTag extends HTMLElement {
     constructor(){
         super();
+    }
 
+    connectedCallback(){
         footnoteJs.fn.footNoteTagFunc(this);
-
     }
 }
 
-class FootNoteListTag extends HTMLUListElement {
+class FootNoteListTag extends HTMLElement {
     constructor(){
         super();
+    }
 
+    connectedCallback(){
         footnoteJs.fn.footNoteListTagFunc(this);
-
     }
 
 }
@@ -51,8 +53,8 @@ let footnoteJs = (function () {
         },
 
         registerCustomTagFootNote: function(){
-            customElements.define('foot-note', FootNoteTag, { extends: 'label'});
-            customElements.define('foot-note-list', FootNoteListTag, { extends: 'ul'});
+            customElements.define('foot-note', FootNoteTag);
+            customElements.define('foot-note-list', FootNoteListTag);
         },
         footNoteTagFunc: function(element){
             let targetEle = null;

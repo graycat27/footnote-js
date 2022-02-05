@@ -12,7 +12,6 @@
  * <foot-note-list></foot-note-list>
  */
 
-//TODO learn https://developer.mozilla.org/ja/docs/Web/API/CustomElementRegistry/define
 class FootNoteTag extends HTMLElement {
     constructor(){
         super();

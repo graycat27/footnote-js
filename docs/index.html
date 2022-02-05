@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Footnote JS</title>
+    <script src="./js/footnote.js"></script>
+</head>
+<body>
+<h1>Footnote js</h1>
+<pre>
+&lt;head&gt;
+&lt;script src="./js/footnote.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Here is &lt;span id="originalId"&gt;your&lt;/span&gt; sentences.
+    You can insert anywhere you want to put the footnote texts.
+    &lt;foot-note for="originalId"&gt;it means you&lt;/foot-note&gt;
+    Anyway, you may insert foot-note-list tag to specify the location
+    to list the footnotes.
+    &lt;!-- like this --&gt;
+    &lt;foot-note-list&gt;&lt;/foot-note-list&gt;
+&lt;/body&gt;
+</pre>
+this sample source will be work as shown below:
+<div>
+    Here is <span id="originalId">your</span> sentences.
+    You can insert anywhere you want to put the footnote texts.
+    <foot-note for="originalId">it means you</foot-note>
+    Anyway, you may insert foot-note-list tag to specify the location
+    to list the footnotes.
+    <!-- like this -->
+    <foot-note-list></foot-note-list>    
+</div>
+</body>
+</html>

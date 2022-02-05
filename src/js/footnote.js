@@ -58,9 +58,8 @@ let footnoteJs = (function () {
             customElements.define('foot-note-list', FootNoteListTag);
         },
         footNoteTagFunc: function(element){
-            let targetEle = null;
             const forAtr = element.getAttribute('for');
-            targetEle = document.getElementById(forAtr);
+            let targetEle = document.getElementById(forAtr);
             if(targetEle == null){
                 // for='id' 指定が不正。
                 // foot-note の直前に対象を挿入する

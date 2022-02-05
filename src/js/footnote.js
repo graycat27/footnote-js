@@ -71,6 +71,7 @@ let footnoteJs = (function () {
                 }
                 element.before(targetEle);
             }
+            element.setAttribute('foot-note-num', (fn.cntFootNote + 1));
             // append [num] link tag
             let numLinkEle = document.createElement('sup');
             numLinkEle.innerHTML =
@@ -82,7 +83,23 @@ let footnoteJs = (function () {
             targetEle.setAttribute('title', element.textContent);
         },
         footNoteListTagFunc: function(element){
-            // ul-li style
+            element.style.display = 'block';
+            element.style.borderTop = '1px solid black';
+            element.style.borderBottom = '1px solid black';
+
+            // create footnote list
+            const footnoteList = document.querySelectorAll('foot-note');
+            footnoteList.forEach(function(noteEle){
+                let footNoteEle = document.createElement('div');
+                const footnoteNum = noteEle.getAttribute('foot-note-num');
+                const footnoteRefId = noteEle.getAttribute('for');
+                footNoteEle.id = fn.prefixFootNoteId + footnoteNum;
+                footNoteEle.innerHTML = ('<a href="#'+ footnoteRefId +'">['+ footnoteNum +']</a>. '+ noteEle.innerHTML);
+                element.appendChild(footNoteEle);
+
+                // remove foot-note tag from document
+                noteEle.remove();
+            });
 
         },
 

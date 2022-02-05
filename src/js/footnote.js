@@ -50,7 +50,6 @@ let footnoteJs = (function () {
         init: function(){
             fn.cntFootNote = 0;
             fn.cntNotForLinked = 0;
-            fn.registerCustomTagFootNote();
         },
 
         registerCustomTagFootNote: function(){
@@ -98,9 +97,9 @@ let footnoteJs = (function () {
         fn: fn
     };
 }());
+footnoteJs.fn.registerCustomTagFootNote();
 
 window.addEventListener('DOMContentLoaded', function(){
     footnoteJs.fn.init();
-    footnoteJs.fn.makeFootnoteList();
 });
 

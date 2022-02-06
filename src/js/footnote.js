@@ -65,7 +65,9 @@ let footnoteJs = (function () {
                 // foot-note の直前に対象を挿入する
                 targetEle = document.createElement('span');
                 if(forAtr == null){
-                    targetEle.id = (fn.prefixFootNoteTargetId + fn.cntNotForLinked);
+                    let targetId = (fn.prefixFootNoteTargetId + fn.cntNotForLinked);
+                    element.setAttribute('for', targetId)
+                    targetEle.id = targetId;
                     fn.cntNotForLinked += 1;
                 }else{
                     targetEle.id = forAtr;

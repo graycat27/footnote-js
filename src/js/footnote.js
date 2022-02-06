@@ -120,10 +120,10 @@ let footnoteJs = (function () {
         fn: fn
     };
 }());
+footnoteJs.fn.init();
 footnoteJs.fn.registerCustomTagFootNote();
 
 window.addEventListener('DOMContentLoaded', function(){
-    footnoteJs.fn.init();
     footnoteJs.fn.rescueMissedFootNote();
 });
 

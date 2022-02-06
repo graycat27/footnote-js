@@ -3,7 +3,7 @@
  * https://yui-kitamura.eng.pro
  *
  * footnote-js
- * version 1.0 released on 2022.02.05.
+ * version 1.1 released on 2022.02.06.
  * This provide footnote for your HTML document.
  *
  * usage
@@ -65,7 +65,9 @@ let footnoteJs = (function () {
                 // foot-note の直前に対象を挿入する
                 targetEle = document.createElement('span');
                 if(forAtr == null){
-                    targetEle.id = (fn.prefixFootNoteTargetId + fn.cntNotForLinked);
+                    let targetId = (fn.prefixFootNoteTargetId + fn.cntNotForLinked);
+                    element.setAttribute('for', targetId)
+                    targetEle.id = targetId;
                     fn.cntNotForLinked += 1;
                 }else{
                     targetEle.id = forAtr;
@@ -80,8 +82,6 @@ let footnoteJs = (function () {
             fn.cntFootNote += 1;
             targetEle.appendChild(numLinkEle);
 
-            // append title attribute
-            targetEle.setAttribute('title', element.textContent);
         },
         footNoteListTagFunc: function(element){
             element.style.display = 'block';
@@ -91,9 +91,13 @@ let footnoteJs = (function () {
             // create footnote list
             const footnoteList = document.querySelectorAll('foot-note');
             footnoteList.forEach(function(noteEle){
+                const footnoteRefId = noteEle.getAttribute('for');
+                // original title attribute
+                document.getElementById(footnoteRefId).setAttribute('title', noteEle.textContent);
+
+                // generate list content
                 let footNoteEle = document.createElement('div');
                 const footnoteNum = noteEle.getAttribute('foot-note-num');
-                const footnoteRefId = noteEle.getAttribute('for');
                 footNoteEle.id = fn.prefixFootNoteId + footnoteNum;
                 footNoteEle.innerHTML = ('<a href="#'+ footnoteRefId +'">['+ footnoteNum +']</a>. '+ noteEle.innerHTML);
                 element.appendChild(footNoteEle);
@@ -116,10 +120,10 @@ let footnoteJs = (function () {
         fn: fn
     };
 }());
+footnoteJs.fn.init();
 footnoteJs.fn.registerCustomTagFootNote();
 
 window.addEventListener('DOMContentLoaded', function(){
-    footnoteJs.fn.init();
     footnoteJs.fn.rescueMissedFootNote();
 });
 

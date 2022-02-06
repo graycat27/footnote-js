@@ -3,7 +3,7 @@
  * https://yui-kitamura.eng.pro
  *
  * footnote-js
- * version 1.0 released on 2022.02.05.
+ * version 1.1 released on 2022.02.06.
  * This provide footnote for your HTML document.
  *
  * usage
